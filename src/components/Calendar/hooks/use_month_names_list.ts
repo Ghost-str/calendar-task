@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getAllMonths from "../utils/month_names_list";
+import getAllMonthsNames from "../utils/month_names_list";
 
 export type MonthNamesList = string[];
 
@@ -10,7 +10,7 @@ const useMonthsNamesList = (monthsNames?: MonthNamesList) => {
       if (monthsNames) {
         setMonthsNames(monthsNames);
       } else {
-        setMonthsNames(getAllMonths());
+        setMonthsNames(getAllMonthsNames());
       }
     },[monthsNames]);
   
