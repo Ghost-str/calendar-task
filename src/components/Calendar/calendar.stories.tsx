@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Calendar, { CalendarEvents } from "./Calendar";
+import Calendar, { CalendarProps } from "./calendar";
 import type { Meta } from "@storybook/react";
 import addMonths from "date-fns/addMonths";
 import subMonths from "date-fns/subMonths";
@@ -9,7 +9,6 @@ import setYear from "date-fns/setYear";
 const meta: Meta<typeof Calendar> = {
   title: "Calendar",
   component: Calendar,
-  tags: ["autodocs"],
   argTypes: {
     currentMonth: {
       control: "date",
@@ -31,7 +30,9 @@ export const FullCalendar = ({ currentMonth }: FullCalendarProps) => {
     currentMonth && setCurrentMonth(new Date(currentMonth));
   }, [currentMonth]);
 
-  const onChangeHandler = (event: CalendarEvents) => {
+  const [selectedDate, setSelectedDate] = useState<null | Date>(null);
+
+  const onChangeHandler: CalendarProps["onChange"] = (event) => {
     switch (event.type) {
       case "addMonth":
       case "nextClick":
@@ -47,10 +48,17 @@ export const FullCalendar = ({ currentMonth }: FullCalendarProps) => {
       case "setYear":
         setCurrentMonth((current) => setYear(current, event.value));
         break;
+      case "currentClick":
+        setSelectedDate(event.value);
+        break;
     }
   };
 
   return (
-    <Calendar currentMonth={currentMonthWrap} onChange={onChangeHandler} />
+    <Calendar
+      currentMonth={currentMonthWrap}
+      onChange={onChangeHandler}
+      selectedDate={selectedDate}
+    />
   );
 };

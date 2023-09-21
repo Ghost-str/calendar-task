@@ -1,0 +1,62 @@
+
+.container {
+   display: inline-block;
+   padding: 0.125rem;
+}
+
+.control-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-button {
+    all: unset;
+    cursor: pointer;    
+    padding: 0.175rem;
+    border-radius: 0.175rem;
+    &:hover {
+        outline: 1px black solid;
+    }
+}
+
+.control-select {
+    all: unset;
+    cursor: pointer;
+    border-radius: 0.175rem;
+    padding: 0.125rem;
+    &:hover {
+        outline: 1px black solid;
+    }
+}
+
+.day {
+    all: unset;
+    cursor: pointer;
+    border-radius: 0.175rem;
+    padding: 0.125rem;
+    height: 100%;
+    width: 100%;
+    &:hover {
+        outline: 1px black solid;
+    }
+}
+
+.current-day {
+    background-color: rgb(115, 255, 0);
+}
+
+.prev-month  {
+    color: gray;
+}
+
+.next-month {
+    color: gray;
+}
+
+.cell {
+    text-align: center;
+}
+
+.selected-date {
+    background-color: red;
+}
