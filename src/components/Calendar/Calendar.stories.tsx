@@ -34,9 +34,11 @@ export const FullCalendar = ({ currentMonth }: FullCalendarProps) => {
     const onChangeHandler = (event: CalendarEvents) => {
         switch(event.type) {
             case "addMonth":
+            case "nextClick":
                 setCurrentMonth((current)=>  addMonths(current, 1));
                 break;
             case "subMonth":
+            case "prevClick":
                 setCurrentMonth((current)=>  subMonths(current, 1));
                 break;
             case "setMonth":
