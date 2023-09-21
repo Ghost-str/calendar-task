@@ -11,6 +11,9 @@
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "date-fns": "^2.30.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -29,7 +32,8 @@
     "extends": [
       "react-app",
       "react-app/jest",
-      "plugin:storybook/recommended"
+      "plugin:storybook/recommended",
+      "plugin:prettier/recommended"
     ]
   },
   "browserslist": {
