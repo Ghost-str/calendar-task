@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useDayNamesList, {
   DayNamesList as DayNamesListType,
 } from "../hooks/use_day_names_list";

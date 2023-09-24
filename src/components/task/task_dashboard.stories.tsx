@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import Component, { Column, Task } from "./task_dashboard";
+import Component, { Task } from "./task_dashboard";
 import { useImmer } from "use-immer";
 
 const meta: Meta<typeof Component> = {

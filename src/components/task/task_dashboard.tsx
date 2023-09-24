@@ -4,7 +4,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import deepClone from "deep-clone";
 import cn from "classnames";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 type Status = "to-do" | "in-progress" | "completed" | "deleted";
 
@@ -152,7 +152,7 @@ function TaskItem({ task, onDrop }: TaskProps) {
     [],
   );
 
-  const [_, drop] = useDrop<Task>(() => ({
+  const [, drop] = useDrop<Task>(() => ({
     accept: "task",
     canDrop(dragTask) {
       return (
