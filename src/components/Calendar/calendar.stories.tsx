@@ -1,64 +1,57 @@
-import { useEffect, useState } from "react";
-import Calendar, { CalendarProps } from "./calendar";
+import { useState } from "react";
+import Component, { CalendarProps } from "./calendar";
 import type { Meta } from "@storybook/react";
 import addMonths from "date-fns/addMonths";
 import subMonths from "date-fns/subMonths";
 import setMonth from "date-fns/setMonth";
 import setYear from "date-fns/setYear";
 
-const meta: Meta<typeof Calendar> = {
-  title: "Calendar",
-  component: Calendar,
-  argTypes: {
-    currentMonth: {
-      control: "date",
-    },
-  },
+const meta: Meta<typeof Component> = {
+  title: "Components/Calendar",
+  component: Component,
 };
 
 export default meta;
 
-type FullCalendarProps = {
-  currentMonth?: number;
-};
-
-export const FullCalendar = ({ currentMonth }: FullCalendarProps) => {
-  const [currentMonthWrap, setCurrentMonth] = useState<Date>(
-    () => (currentMonth && new Date(currentMonth)) || new Date(),
+export const Calendar = () => {
+  const [currentMonth, setCurrentMonth] = useState(() => new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedSecondDate, setSelectedSecondDate] = useState<Date | null>(
+    null,
   );
-  useEffect(() => {
-    currentMonth && setCurrentMonth(new Date(currentMonth));
-  }, [currentMonth]);
-
-  const [selectedDate, setSelectedDate] = useState<null | Date>(null);
 
   const onChangeHandler: CalendarProps["onChange"] = (event) => {
     switch (event.type) {
       case "addMonth":
       case "nextClick":
-        setCurrentMonth((current) => addMonths(current, 1));
-        break;
+        return setCurrentMonth((current) => addMonths(current, 1));
       case "subMonth":
       case "prevClick":
-        setCurrentMonth((current) => subMonths(current, 1));
-        break;
+        return setCurrentMonth((current) => subMonths(current, 1));
       case "setMonth":
-        setCurrentMonth((current) => setMonth(current, event.value));
-        break;
+        return setCurrentMonth((current) => setMonth(current, event.value));
       case "setYear":
-        setCurrentMonth((current) => setYear(current, event.value));
-        break;
+        return setCurrentMonth((current) => setYear(current, event.value));
       case "currentClick":
-        setSelectedDate(event.value);
-        break;
+        if (!selectedDate) {
+          return setSelectedDate(event.value);
+        }
+        if (!selectedSecondDate) {
+          return setSelectedSecondDate(event.value);
+        }
+
+        setSelectedDate(null);
+        setSelectedSecondDate(null);
+        return;
     }
   };
 
   return (
-    <Calendar
-      currentMonth={currentMonthWrap}
+    <Component
+      currentMonth={currentMonth}
       onChange={onChangeHandler}
       selectedDate={selectedDate}
+      selectedSecondDate={selectedSecondDate}
     />
   );
 };

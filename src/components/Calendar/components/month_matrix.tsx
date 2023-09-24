@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useDayNamesList, {
   DayNamesList as DayNamesListType,
 } from "../hooks/use_day_names_list";
@@ -11,6 +12,7 @@ export default function MonthMatrix({
   onChange,
   styles,
   selectedDate,
+  selectedSecondDate,
 }: MonthMatrixProps) {
   return (
     <table>
@@ -20,6 +22,7 @@ export default function MonthMatrix({
         onChange={onChange}
         styles={styles}
         selectedDate={selectedDate}
+        selectedSecondDate={selectedSecondDate}
       />
     </table>
   );

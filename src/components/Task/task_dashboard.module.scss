@@ -1,0 +1,48 @@
+
+.columns-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 0.175rem;
+    height: 100vh;
+}
+
+.column {
+    min-width: 250px;
+    width: 100%;
+    padding: 0.175rem;
+    border-radius: 0.175rem;
+}
+
+.column-title {
+    font-weight: bold;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.column_can_drop {
+    transition: 0.25s;
+    background-color: rgb(111, 175, 81);
+}
+
+.column_can_not_drop {
+    transition: 0.25s;
+    background-color: rgb(235, 69, 69);
+}
+
+.task-container {
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 0.175rem;
+    padding: 0.125rem;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    margin-top: 5px;
+}
+
+.task-container_drugging {
+    opacity: 0.5;
+}

@@ -1,11 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import monthMatrix from "../utils/month_matrix";
 import { DayItemProps, DayItem } from "./day_item";
 import type { ReadOnlyStyleObject } from "../../../utils";
 
 type StyleKeys = "cell";
 
-export type WeeksProps = Omit<DayItemProps, "day"> & {
+export type WeeksProps = Omit<DayItemProps, "day" | "onHover" | "hoverDate"> & {
   styles: ReadOnlyStyleObject<StyleKeys>;
 };
 
@@ -14,11 +14,14 @@ export default function Weeks({
   onChange,
   styles,
   selectedDate,
+  selectedSecondDate,
 }: WeeksProps) {
   const currentMonthMatrix = useMemo(
     () => monthMatrix(currentMonth),
     [currentMonth],
   );
+
+  const [hoverDate, setHoverDate] = useState<Date | null>(null);
 
   return (
     <tbody>
@@ -34,6 +37,9 @@ export default function Weeks({
                     onChange={onChange}
                     styles={styles}
                     selectedDate={selectedDate}
+                    selectedSecondDate={selectedSecondDate}
+                    onHover={(state) => setHoverDate(state)}
+                    hoverDate={hoverDate}
                   />
                 </td>
               );

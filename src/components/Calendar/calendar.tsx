@@ -22,6 +22,7 @@ export default function Calendar({
   dayNames,
   styles,
   selectedDate,
+  selectedSecondDate,
 }: CalendarProps) {
   const patchedStyles = useMemo(() => {
     return {
@@ -46,6 +47,7 @@ export default function Calendar({
         onChange={onChange}
         styles={patchedStyles}
         selectedDate={selectedDate}
+        selectedSecondDate={selectedSecondDate}
       />
     </div>
   );

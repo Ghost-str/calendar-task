@@ -42,7 +42,7 @@
 }
 
 .current-day {
-    background-color: rgb(115, 255, 0);
+    background-color: rgb(236, 198, 91);
 }
 
 .prev-month  {
@@ -58,5 +58,10 @@
 }
 
 .selected-date {
-    background-color: red;
+    background-color: rgb(80, 115, 230);
+    color: white;
+}
+
+.show-diff {
+    background-color: rgb(159, 189, 245);
 }
