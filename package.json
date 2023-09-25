@@ -14,7 +14,8 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ./"
   },
   "eslintConfig": {
     "extends": [
@@ -48,18 +49,19 @@
     "@storybook/react": "^7.4.2",
     "@storybook/react-webpack5": "^7.4.2",
     "@storybook/testing-library": "^0.2.1",
-    "babel-jest": "^29.7.0",
-    "babel-plugin-named-exports-order": "^0.0.2",
-    "eslint-plugin-storybook": "^0.6.13",
-    "jest": "^27.5.1",
-    "storybook": "^7.4.2",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "use-immer": "^0.9.0",
-    "sass": "^1.68.0",
-    "prettier": "^3.0.3",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
-    "immer": "^10.0.2"
+    "babel-jest": "^29.7.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-storybook": "^0.6.13",
+    "immer": "^10.0.2",
+    "jest": "^27.5.1",
+    "prettier": "^3.0.3",
+    "sass": "^1.68.0",
+    "storybook": "^7.4.2",
+    "use-immer": "^0.9.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
