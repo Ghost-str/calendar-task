@@ -12,16 +12,18 @@ export default function MonthMatrix({
   styles,
   selectedDate,
   selectedSecondDate,
+  language,
 }: MonthMatrixProps) {
   return (
     <table>
-      <DayNamesList dayNames={dayNames} />
+      <DayNamesList dayNames={dayNames} language={language} />
       <Weeks
         currentMonth={currentMonth}
         onChange={onChange}
         styles={styles}
         selectedDate={selectedDate}
         selectedSecondDate={selectedSecondDate}
+        language={language}
       />
     </table>
   );
@@ -29,10 +31,11 @@ export default function MonthMatrix({
 
 type DayNamesListProps = {
   dayNames?: DayNamesListType;
+  language?: string;
 };
 
-function DayNamesList({ dayNames }: DayNamesListProps) {
-  const dayNamesList = useDayNamesList(dayNames);
+function DayNamesList({ dayNames, language }: DayNamesListProps) {
+  const dayNamesList = useDayNamesList(dayNames, language);
 
   return (
     <thead>

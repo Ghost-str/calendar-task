@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import dayNamesList from "../utils/day_names_list";
+import { dayNamesListWithDefaults } from "../utils/day_names_list";
 
 export type DayNamesList = string[];
 
-const useDayNamesList = (dayNames?: DayNamesList) => {
+const useDayNamesList = (dayNames?: DayNamesList, language?: string) => {
   const [stateDaysNames, setDaysNames] = useState<DayNamesList>([]);
 
   useEffect(() => {
     if (dayNames) {
       setDaysNames(dayNames);
     } else {
-      setDaysNames(dayNamesList());
+      setDaysNames(dayNamesListWithDefaults(language));
     }
-  }, [dayNames]);
+  }, [dayNames, language]);
 
   return stateDaysNames;
 };

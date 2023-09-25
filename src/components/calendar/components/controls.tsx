@@ -19,6 +19,7 @@ export type ControlsProps = {
   currentMonth: Date;
   onChange: (type: ControlsEvents) => void;
   styles: ReadOnlyStyleObject<StyleKeys>;
+  language?: string;
 };
 
 export default function Controls({
@@ -28,8 +29,9 @@ export default function Controls({
   currentMonth,
   onChange,
   styles,
+  language,
 }: ControlsProps) {
-  const monthNamesList = useMonthsNamesList(monthsNames);
+  const monthNamesList = useMonthsNamesList(monthsNames, language);
   const yearsList = useYearList(startYer, endYer);
 
   return (

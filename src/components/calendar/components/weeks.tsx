@@ -7,6 +7,7 @@ type StyleKeys = "cell";
 
 export type WeeksProps = Omit<DayItemProps, "day" | "onHover" | "hoverDate"> & {
   styles: ReadOnlyStyleObject<StyleKeys>;
+  language?: string;
 };
 
 export default function Weeks({
@@ -15,10 +16,11 @@ export default function Weeks({
   styles,
   selectedDate,
   selectedSecondDate,
+  language,
 }: WeeksProps) {
   const currentMonthMatrix = useMemo(
-    () => monthMatrix(currentMonth),
-    [currentMonth],
+    () => monthMatrix(currentMonth, language),
+    [currentMonth, language],
   );
 
   const [hoverDate, setHoverDate] = useState<Date | null>(null);

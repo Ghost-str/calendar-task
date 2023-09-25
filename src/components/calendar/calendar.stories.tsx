@@ -9,11 +9,22 @@ import setYear from "date-fns/setYear";
 const meta: Meta<typeof Component> = {
   title: "Components/Calendar",
   component: Component,
+  argTypes: {
+    language: {
+      options: ["ru-RU", "en-US"],
+      control: { type: "select", default: "ru-RU" },
+      defaultValue: "ru-RU",
+    },
+  },
 };
 
 export default meta;
 
-export const Calendar = () => {
+type CalendarComponentProps = {
+  language: string;
+};
+
+export const Calendar = ({ language }: CalendarComponentProps) => {
   const [currentMonth, setCurrentMonth] = useState(() => new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedSecondDate, setSelectedSecondDate] = useState<Date | null>(
@@ -52,6 +63,7 @@ export const Calendar = () => {
       onChange={onChangeHandler}
       selectedDate={selectedDate}
       selectedSecondDate={selectedSecondDate}
+      language={language}
     />
   );
 };

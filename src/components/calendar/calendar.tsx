@@ -23,6 +23,7 @@ export default function Calendar({
   styles,
   selectedDate,
   selectedSecondDate,
+  language,
 }: CalendarProps) {
   const patchedStyles = useMemo(() => {
     return {
@@ -40,6 +41,7 @@ export default function Calendar({
         currentMonth={currentMonth}
         onChange={onChange}
         styles={patchedStyles}
+        language={language}
       />
       <MonthMatrix
         dayNames={dayNames}
@@ -48,6 +50,7 @@ export default function Calendar({
         styles={patchedStyles}
         selectedDate={selectedDate}
         selectedSecondDate={selectedSecondDate}
+        language={language}
       />
     </div>
   );
